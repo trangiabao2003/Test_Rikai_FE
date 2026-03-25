@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+	--bg-primary: #0a0a0f;
+	--bg-card: #13131a;
+	--amber: #f59e0b;
+	--amber-light: #fbbf24;
+	--text-primary: #f1f0ec;
+	--text-muted: #9ca3af;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	font-family: "Outfit", sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+	background: #374151;
+	border-radius: 3px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.animate-fade-in {
+	animation: fadeInUp 0.5s ease forwards;
+}
+
+.card-hover {
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+}
+.card-hover:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
+}
+
+.gradient-text {
+	background: linear-gradient(135deg, #f59e0b, #ef4444);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.03);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary {
+	background: linear-gradient(135deg, #f59e0b, #d97706);
+	color: #0a0a0f;
+	font-weight: 600;
+	padding: 0.6rem 1.5rem;
+	border-radius: 0.75rem;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.btn-primary:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+}
+.btn-primary:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.btn-ghost {
+	background: transparent;
+	color: var(--text-muted);
+	font-weight: 500;
+	padding: 0.6rem 1.2rem;
+	border-radius: 0.75rem;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+	border-color: #f59e0b;
+	color: #f59e0b;
+}
+
+.input-field {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 0.75rem;
+	padding: 0.75rem 1rem;
+	color: var(--text-primary);
+	font-size: 0.95rem;
+	transition: border-color 0.2s;
+	outline: none;
+}
+.input-field:focus {
+	border-color: #f59e0b;
+	box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+.input-field::placeholder {
+	color: var(--text-muted);
+}
